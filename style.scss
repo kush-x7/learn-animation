@@ -26,29 +26,32 @@ ul {
 .ball {
   height: 10vmin;
   width: 10vmin;
-  left: 30vw;
+
   border-radius: 50%;
-  // background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
-  // animation: slide-right 7s linear infinite;
+  background: radial-gradient(circle at bottom right, #fb2324, #fe932a);
 
-  background: green;
-  transition-property: background, transform; //opacity ko nhhi karenge hum
-  transition-timing-function: linear, ease-in-out;
-  transition-duration: 1s, 3s; //Normal state ane pe itna time lagega
-
-  &:hover {
-    transition-delay: 2s;
-    transition-duration: 0.5s, 0.25s; // Hover karne pe itna time lagega
-    background: blue;
-    transform: scale(2);
-  }
+  animation: move-like-a-square 2s;
+  animation-fill-mode: both;
 }
 
-@keyframes slide-right {
-  from {
-    transform: translateX(0);
+@keyframes move-like-a-square {
+  0% {
+    transform: none;
   }
-  to {
-    transform: translateX(50vw);
+
+  25% {
+    transform: translateX(30vw);
+  }
+
+  50% {
+    transform: translateX(30vw) translateY(20vw);
+  }
+
+  75% {
+    transform: translateX(0) translateY(20vw);
+  }
+
+  100% {
+    transform: translateX(0) translateY(-0);
   }
 }
